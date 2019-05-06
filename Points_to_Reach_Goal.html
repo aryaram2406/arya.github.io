@@ -1,0 +1,154 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<style>
+body {
+  margin: 0;
+  font-family: Georgia, Times, Times New Roman, serif;
+  background-color:lightblue;
+}
+
+.topnav {
+  overflow: hidden;
+  background-color: #21aaff;
+}
+
+.topnav a {
+  float:left;
+  color: #f2f2f2;
+  text-align: center;
+  padding: 30px 16px;
+  text-decoration: none;
+  font-size: 17px;
+}
+.topnav1{
+	position:relative;
+	margin-left:600px;
+	font-family: Verdana, Geneva, sans-serif;
+}
+.topnav1 a:hover {
+  background-color: #ddd;
+  color: black;
+}
+
+.topnav a.active {
+  background-color: #4CAF50;
+  color: white;
+}
+.interior {
+  width: 800px;
+  height: 400px;
+  margin-left: 500px;
+  margin-top: 100px;
+  border: 5px solid blue;
+  padding: 15px;
+  background-color:#87CEFA; 
+}
+
+.interior h3 {
+  color:black;
+  font-style: bold;
+}
+
+.interior input{
+  font-family: Times, Times New Roman, serif;
+  padding-right: 50px;
+  height:20px;
+  margin-top: 15px;
+  margin-left: 5px;
+}
+.interior button{
+  font-family: Times, Times New Roman, serif;
+  padding-right: 50px;
+  height:20px;
+  margin-top: 15px;
+  margin-left: 5px;
+}
+.interior label {
+  font-weight: 600;
+  color: black;
+}
+.Grades {
+  font-family:Arial, Helvetica, sans-serif;
+}
+.yeeet {
+}
+</style>
+</head>
+<body>
+
+<div class="topnav">
+	<a class = "Grades" style = "font-size:20px"><strong><u>Grades Website</u></strong></a>
+	<div class = "topnav1">
+	  	<a href="index.html">Home</a>
+	  	<a href="GPA_Calculator.html">GPA Calculator</a>
+	  	<a class = "active" href="Points_to_reach_goal.html">Points to reach goal</a>
+	  	<a href="Future_Assignments.html">Future Assignments</a>
+</div>
+</div>
+
+<div class = "interior">
+  <h3> <u>Points Needed to Reach Your Goal</u></h3>
+  <form>
+    <label>Enter Current Points:  </label>
+    <input id = "current" type="text" name ="Enter Current Points" placeholder="Current Points">
+    <br>
+    <label>Enter Total Points: </label>
+    <input id = "total" type="text" name="Enter Total Points" placeholder="Total Points">
+    <br>
+    <label> Enter Which Grade You Want: </label>
+    <input id = "grade" type="text" name="Enter Grade" placeholder="Grade">
+    <br>
+    <div class = "submitbutton">
+      <button id="submitbutton" value = "submit grades" onclick = "myFunction()" type = "button" > Submit grades </button>
+      <br>
+      <br>
+      <p id = "yeet" class = "yeeet"></p>
+    </div>
+  </form>
+</div>
+<script>
+  function myFunction() {
+    let current = parseInt(document.getElementById("current").value);
+    let total = parseInt(document.getElementById("total").value);
+    let grad = document.getElementById("grade").value;
+    let difference = parseInt(total - current);
+    if (grad == "A" || grad == "a") {
+      var neededPoints = Math.ceil((difference * 10) - total);
+      var newgrad = "a"
+    } 
+    else if (grad == "B" || grad == "b") {
+      var neededPoints = Math.ceil((difference * 5) - total);
+      var newgrad = "b"
+    }
+    else if (grad == "C" || grad == "c") {
+      var neededPoints = Math.ceil((difference * (10/3)) - total);
+      var newgrad = "c"
+    }
+    else if (grad == "D" || grad == "d") {
+      var neededPoints = Math.ceil((difference * (5/2)) - total);
+      var newgrad = "d"
+    }
+    if (neededPoints <= 0){
+      if (newgrad === "a") {
+        document.getElementById('yeet').innerText = `You already have an A`;
+      }
+      else {
+        document.getElementById('yeet').innerText = `You already have a ${newgrad}`;
+      }
+    }
+    else {
+      if (grad == "f" || grad == "F") {
+        location.reload()
+      }
+      else {
+        document.getElementById('yeet').innerText = `You need ${neededPoints} points to reach your goal`;           
+      }
+    }
+
+  }
+</script>
+
+</html>
+

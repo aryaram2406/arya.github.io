@@ -1,0 +1,121 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<style>
+body {
+  margin: 0;
+  font-family: Georgia, Times, Times New Roman, serif;
+  background-color:lightblue;
+}
+
+.topnav {
+  overflow: hidden;
+  background-color: #21aaff;
+}
+
+.topnav a {
+  float:left;
+  color: #f2f2f2;
+  text-align: center;
+  padding: 30px 16px;
+  text-decoration: none;
+  font-size: 17px;
+}
+.topnav1{
+	position:relative;
+	margin-left:600px;
+	font-family: Verdana, Geneva, sans-serif;
+}
+.topnav1 a:hover {
+  background-color: #ddd;
+  color: black;
+}
+
+.topnav a.active {
+  background-color: #4CAF50;
+  color: white;
+}
+.interior {
+  width: 800px;
+  height: 600px;
+  margin-left: 500px;
+  margin-top: 100px;
+  border: 5px solid blue;
+  padding: 15px;
+  background-color:#87CEFA; 
+}
+
+.interior h3 {
+  color:black;
+  font-style: bold;
+}
+
+.interior input{
+  font-family: Times, Times New Roman, serif;
+  padding-right: 50px;
+  height:20px;
+  margin-top: 15px;
+  margin-left: 5px;
+}
+.interior label {
+  font-weight: 600;
+  color: black;
+}
+.Grades {
+  font-family:Arial, Helvetica, sans-serif;
+}
+</style>
+<script>
+  function addFields(){
+    var number = document.getElementById("member").value;
+    var container = document.getElementById("container");
+    while (container.hasChildNodes()) {
+        container.removeChild(container.lastChild);
+    }
+    let array = []
+    for (i=0;i<number;i++){
+        container.appendChild(document.createTextNode("Class " + (i+1)));
+        var input = document.createElement("input");
+        input.type = "text";
+        array.push(document.getElementById("container").value)
+        container.appendChild(input);
+        container.appendChild(document.createElement("br"));
+    }
+    console.log(array)
+    container.appendChild(document.createElement("br"));
+    var node = document.createElement("button");
+    var textnode = document.createTextNode("Submit");
+    node.appendChild(textnode)
+    var element = document.getElementById("container")
+    element.appendChild(node)
+}
+</script>
+</head>
+<body>
+
+<div class="topnav">
+	<a class = "Grades" style = "font-size:20px"><strong><u>Grades Website</u></strong></a>
+	<div class = "topnav1">
+	  	<a href="Homepage.html">Home</a>
+	  	<a class="active" href="GPA Calculator.html">GPA Calculator</a>
+	  	<a href="Points to reach goal.html">Points to reach goal</a>
+	  	<a href="Future Assignments.html">Future Assignments</a>
+</div>
+</div>
+
+<div class = "interior">
+  <h3> <u>GPA Calculator </u></h3>
+Enter the number of classes: <input type="text" id="member" name="member" value=""><br />
+<input type = "submit" id="filldetails" onclick="addFields()" value = "Enter in the grade for each of your classes"></a>
+    <div id="container"/>
+
+    <div class = "submitbutton">
+      <input type="submit" name ="submit" value = "Submit Grades">
+    </div>
+  </form>
+</div>
+</body>
+</html>
+
+

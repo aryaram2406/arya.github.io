@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html>
+<head>
+<script>
+function addFields(){
+    var number = document.getElementById("member").value;
+    var container = document.getElementById("container");
+    while (container.hasChildNodes()) {
+        container.removeChild(container.lastChild);
+    }
+    for (i=0;i<number;i++){
+        container.appendChild(document.createTextNode("Class " + (i+1)));
+        var input = document.createElement("input");
+        input.type = "text";
+        container.appendChild(input);
+        container.appendChild(document.createElement("br"));
+    }
+}
+</script>
+</head>
+<body>
+How many classes: <input type="text" id="member" name="member" value=""><br />
+<input type = "submit" id="filldetails" onclick="addFields()" value = "Enter in the grade for each of your classes"></a>
+    <div id="container"/>
